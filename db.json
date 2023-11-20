@@ -1,0 +1,106 @@
+{
+  "users": [
+    {
+      "id": 0,
+      "user_uuid": "b0e3f10e-9b4a-463d-a210-c11b0c4c5c93",
+      "username": "Yael Shteiman",
+      "handle": "yaelshtaiman",
+      "bio": "Hi! My name is Yael and I'm looking for a full stack position.",
+      "link": "https://www.linkedin.com/in/yaelshteiman/",
+      "img": "https://i.imgur.com/83WZBHU.jpg",
+      "instagram_url": "https://www.instagram.com/yaelshtaiman/",
+      "followers": [
+        {
+          "user_uuid": "3bc0439d-1c28-4073-add8-e710551b48e0"
+        },
+        {
+          "user_uuid": "2399b63c-6647-4be1-9bfa-96ab1b9b7825"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "user_uuid": "3bc0439d-1c28-4073-add8-e710551b48e0",
+      "username": "yogi",
+      "handle": "yogawithyael",
+      "bio": "I <3 yoga",
+      "link": "https://www.pinterest.com/search/pins/?q=yoga&rs=typed",
+      "img": "https://i.imgur.com/CH9G1Me.jpg",
+      "instagram_url": "https://www.instagram.com/yogi/",
+      "followers": [
+        {
+          "user_uuid": "b0e3f10e-9b4a-463d-a210-c11b0c4c5c93"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "user_uuid": "2399b63c-6647-4be1-9bfa-96ab1b9b7825",
+      "username": "emma",
+      "handle": "emmabooks",
+      "bio": "Book lover",
+      "link": "https://www.pinterest.com/search/pins/?q=books&rs=typed",
+      "img": "https://i.imgur.com/0a6FbeA.jpg",
+      "instagram_url": "https://www.instagram.com/books/",
+      "followers": [
+        {
+          "user_uuid": "b0e3f10e-9b4a-463d-a210-c11b0c4c5c93"
+        }
+      ]
+    }
+  ],
+  "threads": [
+    {
+      "id": 0,
+      "timestamp": "Mon Nov 20 2023 15:44:55 GMT+0200 GMT",
+      "thread_from": "b0e3f10e-9b4a-463d-a210-c11b0c4c5c93",
+      "thread_to": null,
+      "reply_to": null,
+      "text": "Hello world (of threads)",
+      "likes": [
+        {
+          "uuid": "2399b63c-6647-4be1-9bfa-96ab1b9b782"
+        },
+        {
+          "uuid": "3bc0439d-1c28-4073-add8-e710551b48e0"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "timestamp": "Mon Nov 20 2023 16:44:55 GMT+0200 GMT",
+      "thread_from": "b0e3f10e-9b4a-463d-a210-c11b0c4c5c93",
+      "thread_to": null,
+      "reply_to": null,
+      "text": "awesome thread!",
+      "likes": []
+    },
+    {
+      "id": 2,
+      "timestamp": "Mon Nov 20 2023 18:30:30 GMT+0200 GMT",
+      "thread_from": "b0e3f10e-9b4a-463d-a210-c11b0c4c5c93",
+      "thread_to": null,
+      "reply_to": null,
+      "text": "Another one!",
+      "likes": []
+    },
+    {
+      "id": 3,
+      "timestamp": "Mon Nov 21 2023 08:40:34 GMT+0200 GMT",
+      "thread_from": "3bc0439d-1c28-4073-add8-e710551b48e0",
+      "thread_to": null,
+      "reply_to": null,
+      "text": "Excited to have launched my yogi!",
+      "likes": []
+    },
+    {
+      "id": 4,
+      "timestamp": "Mon Nov 21 2023 08:45:34 GMT+0200 GMT",
+      "thread_from": "3bc0439d-1c28-4073-add8-e710551b48e0",
+      "thread_to": "3bc0439d-1c28-4073-add8-e710551b48e0",
+      "reply_to": 3,
+      "text": "Congrats!",
+      "likes": []
+    }
+  ]
+}
