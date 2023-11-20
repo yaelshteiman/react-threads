@@ -1,5 +1,5 @@
 
-const App= () => {
+const App = () => {
   return (
     <div className="app">
     </div>
