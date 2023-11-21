@@ -11,6 +11,7 @@ const App = () => {
     const [viewThreadsFeed, setViewThreadsFeed] = useState(true)
     const [filteredThreads, setFilteredThreads] = useState(null)
     const [openPopUp, setOpenPopUp] = useState(false)
+    const [interactingThread, setInteractingThread] = useState(null)
 
     const userId = "b0e3f10e-9b4a-463d-a210-c11b0c4c5c93"
 
@@ -46,6 +47,10 @@ const App = () => {
         }
     }
 
+    const getReplies = async () => {
+        const response = await fetch(``)
+    }
+
     useEffect(() => {
         getUser()
         getThreads()
@@ -71,6 +76,7 @@ const App = () => {
                     setOpenPopUp={setOpenPopUp}
                     filteredThreads={filteredThreads}
                     getThreads={getThreads}
+                    setInteractingThread={setInteractingThread}}
                 />
                 {openPopUp &&
                     <PopUp

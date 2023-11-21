@@ -1,12 +1,13 @@
 import {useState, useEffect} from "react"
 import moment from "moment"
 
-const Thread = ({user, setOpenPopUp, filteredThread, getThreads}) => {
+const Thread = ({user, setOpenPopUp, filteredThread, getThreads, setInteractingThread}) => {
 
     const timePassed = moment().startOf('day').fromNow(filteredThread.timestamp)
 
     const handleClick = () => {
         setOpenPopUp(true)
+        setInteractingThread(filteredThread)
     }
 
     const postLike = async () => {
