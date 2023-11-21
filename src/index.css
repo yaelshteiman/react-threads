@@ -121,4 +121,9 @@ button.primary {
     height: 110%;
 }
 
+.feed {
+    height: 400px;
+    overflow-x: scroll;
+}
+
 
