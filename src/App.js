@@ -3,13 +3,14 @@ import Nav from "./components/Nav"
 import Header from "./components/Header"
 import Feed from "./components/Feed"
 import PopUp from "./components/PopUp"
-import thread from "./components/Thread";
+import WriteIcon from "./components/WriteIcon";
 
 const App = () => {
     const [user, setUser] = useState(null)
     const [threads, setThreads] = useState(null)
     const [viewThreadsFeed, setViewThreadsFeed] = useState(true)
-    const [filterdThreads, setFilteredThreads] = useState(null)
+    const [filteredThreads, setFilteredThreads] = useState(null)
+    const [openPopUp, setOpenPopUp] = useState(false)
 
     const userId = "b0e3f10e-9b4a-463d-a210-c11b0c4c5c93"
 
@@ -25,7 +26,7 @@ const App = () => {
     }
 
     const getThreads = async () => {
-        try{
+        try {
             const response = await fetch(`http://localhost:3000/threads?threads_from=${userId}`)
             const data = await response.json()
             setThreads(data)
@@ -52,9 +53,9 @@ const App = () => {
 
     useEffect(() => {
         getThreadsFeed()
-    }, [user, threads, viewThreadsFeed])
+    }, [user, threads, viewThreadsFeed]);
 
-    console.log(filterdThreads)
+    console.log(user)
 
     return (
         <>
@@ -62,12 +63,24 @@ const App = () => {
                 <Nav url={user.instagram_url}/>
                 <Header
                     user={user}
-                    viewThreadsFeed = {viewThreadsFeed}
-                    setViewThreadsFeed = {setViewThreadsFeed}
+                    viewThreadsFeed={viewThreadsFeed}
+                    setViewThreadsFeed={setViewThreadsFeed}
                 />
-                <Feed/>
-                {/*<PopUp/>*/}
+                <Feed
+                    user={user}
+                    setOpenPopUp={setOpenPopUp}
+                    filteredThreads={filteredThreads}
+                />
+                {openPopUp &&
+                    <PopUp
+                        user={user}
+                        setOpenPopUp={setOpenPopUp}
+                    />}
+                <div onClick={() => setOpenPopUp(true)}>
+                    <WriteIcon/>
+                </div>
             </div>}
+
         </>
 
     )
