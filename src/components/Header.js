@@ -19,8 +19,8 @@ const Header = () => {
                 onClick={() => navigator.clipboard.writeText('I am a URL')}>
                 Share Profile
             </button>
-            <div className="buttom-container">
-                <button>Threads</button>
+            <div className="button-container">
+                <button className="current">Threads</button>
                 <button>Replies</button>
             </div>
         </header>
