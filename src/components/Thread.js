@@ -3,6 +3,8 @@ import moment from "moment"
 
 const Thread = ({user, setOpenPopUp, filteredThread, getThreads, setInteractingThread}) => {
 
+    const [replyLength, setReplyLength] = useState(null)
+
     const timePassed = moment().startOf('day').fromNow(filteredThread.timestamp)
 
     const handleClick = () => {
@@ -29,11 +31,22 @@ const Thread = ({user, setOpenPopUp, filteredThread, getThreads, setInteractingT
             } catch (error) {
                 console.error(error)
             }
-
         }
-
-
     }
+
+    const getRepliesLength = async () => {
+        try {
+            const response = await fetch(`http://localhost:3000/threads?reply_to=${filteredThread?.id}`)
+            const data = await response.json()
+            setReplyLength(data.length)
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
+    useEffect(() => {
+        getRepliesLength()
+    }, [filteredThread]);
 
     return (
         <article className="feed-card">
@@ -72,7 +85,7 @@ const Thread = ({user, setOpenPopUp, filteredThread, getThreads, setInteractingT
 
             </div>
             <p className="sub-text"><span
-                onClick={handleClick}>X replies</span> • <span>{filteredThread.likes.length} likes</span></p>
+                onClick={handleClick}>{replyLength} replies</span> • <span>{filteredThread.likes.length} likes</span></p>
         </article>
     )
 }

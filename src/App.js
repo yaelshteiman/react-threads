@@ -13,6 +13,7 @@ const App = () => {
     const [openPopUp, setOpenPopUp] = useState(false)
     const [interactingThread, setInteractingThread] = useState(null)
     const [popUpFeedThreads, setPopUpFeedThreads] = useState(null)
+    const [text, setText] = useState("")
 
     const userId = "b0e3f10e-9b4a-463d-a210-c11b0c4c5c93"
 
@@ -50,12 +51,42 @@ const App = () => {
 
     const getReplies = async () => {
         try {
-            const response = await fetch(`http://localhost:3000/threads?reply_to${interactingThread?.id}`)
+            const response = await fetch(`http://localhost:3000/threads?reply_to=${interactingThread?.id}`)
             const data = await response.json()
             setPopUpFeedThreads(data)
         } catch (error) {
             console.error(error)
         }
+    }
+
+    const postThread = async () => {
+        const thread = {
+            "timestamp": new Date(),
+            "thread_from": user.user_uuid,
+            "thread_to": user.user_uuid || null,
+            "reply_to": interactingThread?.id || null,
+            "text": text,
+            "likes": [
+
+            ]
+        }
+        try{
+            const response = await fetch("http://localhost:3000/threads", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(thread)
+            })
+            const result = await response.json()
+            console.log(result)
+            getThreads()
+            getReplies()
+            setText("")
+        } catch (error) {
+            console.error(error)
+        }
+
     }
 
     useEffect(() => {
@@ -71,6 +102,11 @@ const App = () => {
         getThreadsFeed()
     }, [user, threads, viewThreadsFeed]);
 
+    const handleClick = () => {
+        setPopUpFeedThreads(null)
+        setInteractingThread(null)
+        setOpenPopUp(true)
+    }
 
     return (
         <>
@@ -93,8 +129,11 @@ const App = () => {
                         user={user}
                         setOpenPopUp={setOpenPopUp}
                         popUpFeedThreads={popUpFeedThreads}
+                        text={text}
+                        setText={setText}
+                        postThread={postThread}
                     />}
-                <div onClick={() => setOpenPopUp(true)}>
+                <div onClick={handleClick}>
                     <WriteIcon/>
                 </div>
             </div>}
