@@ -51,7 +51,7 @@
   ],
   "threads": [
     {
-      "id": 0,
+      "id": 1,
       "timestamp": "Mon Nov 20 2023 15:44:55 +0200 GMT",
       "thread_from": "b0e3f10e-9b4a-463d-a210-c11b0c4c5c93",
       "thread_to": null,
@@ -68,15 +68,6 @@
           "user_uuid": "b0e3f10e-9b4a-463d-a210-c11b0c4c5c93"
         }
       ]
-    },
-    {
-      "id": 1,
-      "timestamp": "Mon Nov 20 2023 16:44:55 +0200 GMT",
-      "thread_from": "b0e3f10e-9b4a-463d-a210-c11b0c4c5c93",
-      "thread_to": null,
-      "reply_to": null,
-      "text": "awesome thread!",
-      "likes": []
     },
     {
       "id": 2,
@@ -104,6 +95,16 @@
       "reply_to": 3,
       "text": "Congrats!",
       "likes": []
+    },{
+      "id": 5,
+      "timestamp": "Mon Nov 21 2023 08:45:34 +0200 GMT",
+      "thread_from": "2399b63c-6647-4be1-9bfa-96ab1b9b7825",
+      "thread_to": null,
+      "reply_to": null,
+      "text": "What book are you reading?",
+      "likes": []
     }
+
+
   ]
 }
