@@ -30,7 +30,7 @@ const App = () => {
 
     const getThreads = async () => {
         try {
-            const response = await fetch(`http://localhost:3000/threads?threads_from=${userId}`)
+            const response = await fetch(`http://localhost:3000/threads?thread_from=${userId}`)
             const data = await response.json()
             setThreads(data)
         } catch (error) {
