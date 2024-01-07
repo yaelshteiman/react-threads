@@ -16,7 +16,7 @@ const Header = ({user, viewThreadsFeed, setViewThreadsFeed}) => {
             </div>
             <button
                 className="primary"
-                onClick={() => navigator.clipboard.writeText('I am a URL')}>
+                onClick={() => navigator.clipboard.writeText(user.link)}>
                 Share Profile
             </button>
             <div className="button-container">
